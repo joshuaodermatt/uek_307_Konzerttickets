@@ -1,5 +1,6 @@
 <?php
 class Ticket {
+    public int $id;
     public string $lastname;
     public string $firstname;
     public string $email;
@@ -8,7 +9,8 @@ class Ticket {
     public int $discount;
     public bool $status;
 
-    public function __construct($lastname = null, $firstname = null, $email = null, $phone = null, $concert = null, $discount = null, $status = null) {
+    public function __construct($id = 0, $lastname = '', $firstname = '', $email = '', $phone = '', $concert = 0, $discount = 0, $status = 0) {
+        $this->id = $id;
         $this->lastname = $lastname;
         $this->firstname = $firstname;
         $this->email = $email;
@@ -31,21 +33,38 @@ class Ticket {
 
         $response = $statement->fetchAll();
 
-
-
-        $ticket = new self();
-        $ticket->construct(
+        $ticket = new Ticket(
+            $response[0]['id'],
             $response[0]['lastname'],
             $response[0]['firstname'],
-            $response[0]['e-mail'],
+            $response[0]['email'],
             $response[0]['phone'],
             $response[0]['concert'],
             $response[0]['discount'],
             $response[0]['status']
         );
+
         return $ticket;
 
     }
+
+
+    public function update(){
+        $pdo = db();
+
+
+
+        $statement = $pdo->prepare('UPDATE `tickets` SET lastname = :lastname, firstname = :firstname, email = :email, phone = :phone, concert = :concert, status = :status WHERE id = :id');
+
+        $status = $this->mapBoolToInt($this->status);
+
+        $statement->bindParam(':firstname', $this->firstname);
+        $statement->bindParam(':lastname', $this->lastname);
+        $statement->bindParam(':email', $this->email);
+        $statement->bindParam(':phone', $this->phone);
+        $statement->bindParam(':concert', $this->concert);
+        $statement->bindParam(':status', $status);
+        $statement->bindParam(':id', $this->id);
 
     protected function fetchConcert($id) {
         $pdo = db();
@@ -85,6 +104,15 @@ class Ticket {
         $statement->execute();
     }
 
+
+    protected function mapBoolToInt($boolean):int {
+        if($boolean) {
+            return 1;
+        }
+        return 0;
+    }
+}
+
     public function getDue() {
         if ($this->discount === 5) {
             return date("Y-m-d H:i:s", strtotime('+20 day'));
@@ -107,3 +135,4 @@ class Ticket {
 
 
 }
+

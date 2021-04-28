@@ -2,15 +2,14 @@
 require 'core/bootstrap.php';
 
 $routes = [
-
+	'edit' => 'EditController@edit',
+  'update' => 'Editcontroller@update'
 	'/dashboard' => '',
 	'/' => '',
 	'/create' => 'CreateController@create',
-	'/edit' => '',
 	'/pending' => '',
 	'/detail' => '',
 	'/add' => 'CreateController@add',
-	'/update' => '',
 ];
 
 
