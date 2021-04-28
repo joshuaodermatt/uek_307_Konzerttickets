@@ -3,6 +3,7 @@ require 'core/bootstrap.php';
 
 $routes = [
 	'edit' => 'EditController@edit',
+    'update' => 'Editcontroller@update'
 ];
 
 

@@ -8,12 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <form action="/update" method="post">
+
+        <input type="hidden" name="id" value="<?=$id?>">
+
         <label for="lastName">Nachname*</label> <br>
-        <input type="text" id="lastName" name="lastName" value="<?= $ticket->lastname?>"><br>
+        <input type="text" id="lastName" name="lastname" value="<?= $ticket->lastname?>"><br>
 
         <label for="firstName">Vorname*</label><br>
-        <input type="text" id="firstName" name="firstName" value="<?= $ticket->firstname?>"><br>
+        <input type="text" id="firstName" name="firstname" value="<?= $ticket->firstname?>"><br>
 
         <label for="email">Email*</label><br>
         <input type="email" id="email" name="email" value="<?= $ticket->email?>"><br>
@@ -23,27 +26,27 @@
 
         <label for="concert">Konzert*</label><br>
         <select name="concert" id="concert" >
-            <option value="test">Test</option>
-            <option value="test2">Test2</option>
+            <option value="<?= $selectedConcert['id']?>"><?= $selectedConcert['artist']?></option>
+            <?php foreach ($restOfConcerts as $concert) :?>
+                <option value="<?= $concert['id']?>"><?= $concert['artist']?></option>
+            <?php endforeach;?>
         </select> <br><br>
 
-        <label>Treuerabatt*</label> <br>
-        <input type="radio" id="noDiscount" value="Kein Rabatt" name="discount" >
+        <label>Treuerabatt</label> <br>
+        <p><?=$ticket->discount?>%</p>
+        <input type="hidden" id="discount-hidden" value="<?=$ticket->discount?>" name="discount">
 
-        <label for="noDiscount">Kein Rabatt</label><br>
-        <input type="radio" id="fivePercentDiscount" value="5% Rabatt" name="discount">
-
-        <label for="fivePercentDiscount">5% Rabatt</label><br>
-        <input type="radio" id="tenPercentDiscount" value="10% Rabatt" name="discount">
-
-        <label for="tenPercentDiscount">10% Rabatt</label><br>
-        <input type="radio" id="fifteenPercentDiscount" value="15% Rabatt" name="discount">
-
-        <label for="fifteenPercentDiscount">15% Rabatt</label><br><br>
-        <input type="submit" value="Ticket erstellen">
-
-        <input type="checkbox" id="status" name="status">
+        <input type="checkbox" id="status" name="status" value="1" <?=( $ticket->status == 1) ? 'checked' : ''?>>
         <label for="status">Betrag erhalten</label>
+
+        <input type="submit" value="save">
     </form>
+
+    <ul>
+        <?php if(isset($errors)) :?>
+            <?php foreach ($errors as $error) :?>
+                <li><?=$error?></li>
+        <?php endforeach; endif;?>
+    </ul>
 </body>
 </html>
