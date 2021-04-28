@@ -3,18 +3,24 @@
 
         public function create() {
 
+            $pbo = db();
+            $statement = $pbo->prepare('SELECT * FROM concerts');
+            $statement->execute();
+            $result = $statement->fetchAll();
             require './app/Views/create.view.php';
         }
 
         public function add() {
-            $lastname = $_POST['lastName'];
-            $firstname = $_POST['firstName'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
-            $concert = $_POST['concert'];
-            $discount = $_POST['discount'];
+            $lastname = trim($_POST['lastName']);
+            $firstname = trim($_POST['firstName']);
+            $email = trim($_POST['email']);
+            $phone = trim($_POST['phone']);
+            $concert = trim($_POST['concert']);
+            $discount = trim($_POST['discount']);
 
-
+            $errors = [];
+            $ticket = new Ticket($lastname, $firstname, $email, $phone, $concert, $discount, 0);
+            $ticket->createTicket();
         }
 
     }

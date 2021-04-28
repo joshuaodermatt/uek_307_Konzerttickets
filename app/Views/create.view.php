@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ticketverkauf erstellen</title>
 </head>
-<form action="/add" method="post">
+<body>
+<form action="/add" method="POST">
     <label for="lastName">Nachname*</label> <br>
     <input type="text" id="lastName" name="lastName"><br>
     <label for="firstName">Vorname*</label><br>
@@ -18,18 +19,19 @@
     <input type="tel" id="phone" name="phone"><br><br>
     <label for="concert">Konzert*</label><br>
     <select name="concert" id="concert">
-        <option value="test" >Test</option>
-        <option value="test2">Test2</option>
+        <?php foreach ($result as $concert) : ?>
+        <option value="<?= $concert['id']?>"><?= $concert['artist']?></option>
+        <?php endforeach; ?>
     </select> <br><br>
     <label>Treuerabatt*</label> <br>
 
-    <input type="radio" id="noDiscount" value="Kein Rabatt" name="discount">
+    <input type="radio" id="noDiscount" value="0" name="discount">
     <label for="noDiscount">Kein Rabatt</label><br>
-    <input type="radio" id="fivePercentDiscount" value="5% Rabatt" name="discount">
+    <input type="radio" id="fivePercentDiscount" value="5" name="discount">
     <label for="fivePercentDiscount">5% Rabatt</label><br>
-    <input type="radio" id="tenPercentDiscount" value="10% Rabatt" name="discount">
+    <input type="radio" id="tenPercentDiscount" value="10" name="discount">
     <label for="tenPercentDiscount">10% Rabatt</label><br>
-    <input type="radio" id="fifteenPercentDiscount" value="15% Rabatt" name="discount">
+    <input type="radio" id="fifteenPercentDiscount" value="15" name="discount">
     <label for="fifteenPercentDiscount">15% Rabatt</label><br><br>
 
     <input type="submit" value="Ticket erstellen">
