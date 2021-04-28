@@ -25,7 +25,7 @@
     </select> <br><br>
     <label>Treuerabatt*</label> <br>
 
-    <input type="radio" id="noDiscount" value="0" name="discount">
+    <input type="radio" id="noDiscount" value="0" name="discount" checked>
     <label for="noDiscount">Kein Rabatt</label><br>
     <input type="radio" id="fivePercentDiscount" value="5" name="discount">
     <label for="fivePercentDiscount">5% Rabatt</label><br>
@@ -36,7 +36,13 @@
 
     <input type="submit" value="Ticket erstellen">
 </form>
-
+<ul>
+    <?php if (isset($errors)) :?>
+    <?php foreach ($errors as $error) : ?>
+    <li><?= $error ?></li>
+    <?php endforeach; ?>
+    <?php endif; ?>
+</ul>
 
 </body>
 </html>
