@@ -2,7 +2,7 @@
 require 'core/bootstrap.php';
 
 $routes = [
-	'/edit' => 'EditController@index',
+	'edit' => 'EditController@edit',
 ];
 
 

@@ -31,6 +31,8 @@ class Ticket {
 
         $response = $statement->fetchAll();
 
+
+
         $ticket = new self();
         $ticket->construct(
             $response[0]['lastname'],
@@ -43,5 +45,17 @@ class Ticket {
         );
         return $ticket;
 
+    }
+
+    protected function fetchConcert($id) {
+        $pdo = db();
+
+        $statement = $pdo->prepare('SELECT * FROM tickets WHERE id = :id');
+
+        $statement->bindParam(':id', $id);
+
+        $statement->execute();
+
+        $response = $statement->fetchAll();
     }
 }

@@ -38,10 +38,11 @@ function db(): PDO
     ];
 
     try {
-        $dbInstance = new PDO('mysql:host=10.20.16.101;dbname=' . $db['name'], $db['username'], $db['password'], [
+        $dbInstance = new PDO('mysql:host=localhost:8889;dbname=' . $db['name'], $db['username'], $db['password'], [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
         ]);
+        return $dbInstance;
     } catch (PDOException $e) {
         die('Keine Verbindung zur Datenbank möglich: ' . $e->getMessage());
     }
