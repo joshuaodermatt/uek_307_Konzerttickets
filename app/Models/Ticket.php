@@ -61,6 +61,12 @@ class Ticket {
 
     public function createTicket() {
 
+        $this->lastname = htmlspecialchars($this->lastname);
+        $this->firstname = htmlspecialchars($this->firstname);
+        $this->email = htmlspecialchars($this->email);
+        $this->phone = htmlspecialchars($this->phone);
+        $this->concert = htmlspecialchars($this->concert);
+        $this->discount = htmlspecialchars($this->discount);
         $pdo = db();
         $due = $this->getDue();
         $created = date("Y-m-d H:i:s");
