@@ -6,7 +6,7 @@
             $pbo = db();
             $statement = $pbo->prepare('SELECT * FROM concerts');
             $statement->execute();
-            $result = $statement->fetchAll();
+            $allConcerts = $statement->fetchAll();
             require './app/Views/create.view.php';
         }
 
@@ -41,6 +41,19 @@
                 $ticket = new Ticket($lastname, $firstname, $email, $phone, $concert, $discount, 0);
                 $ticket->createTicket();
             } else {
+                $pbo = db();
+                $statement = $pbo->prepare('SELECT * FROM concerts');
+                $statement->execute();
+                $result = $statement->fetchAll();
+                $selectedConcert = 0;
+                $allConcerts = [];
+                foreach ($result as $concertFormDb) {
+                    if ($concertFormDb['id'] == $concert) {
+                        $selectedConcert = $concertFormDb;
+                    } else {
+                        array_push($allConcerts, $concertFormDb);
+                    }
+                }
                 require './app/Views/create.view.php';
             }
 
