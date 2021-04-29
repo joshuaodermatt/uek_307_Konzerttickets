@@ -29,7 +29,7 @@ class EditController {
 
             require 'app/Views/edit.view.php';
         }else {
-            header('Location: /pending');
+            header('Location: pending');
         }
     }
 
@@ -88,7 +88,7 @@ class EditController {
                 );
 
                 $ticket->update();
-                header('Location: /pending');
+                header('Location: pending');
             } else {
 
                 $ticket = new Ticket(
@@ -122,7 +122,7 @@ class EditController {
 
             }
         }else {
-            header('Location: /');
+            header('Location: ');
         }
 
 

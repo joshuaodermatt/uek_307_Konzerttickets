@@ -32,13 +32,13 @@ function db(): PDO
     }
 
     $db = [
-        'name'     => 'ticketverkauf',
-        'username' => 'root',
-        'password' => 'root',
+        'name'     => 'kurseictbz_30712',
+        'username' => 'kurseictbz_30712',
+        'password' => 'db_307_pw_12',
     ];
 
     try {
-        $dbInstance = new PDO('mysql:host=localhost:8889;dbname=' . $db['name'], $db['username'], $db['password'], [
+        $dbInstance = new PDO('mysql:host=127.0.0.1;dbname=' . $db['name'], $db['username'], $db['password'], [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
         ]);

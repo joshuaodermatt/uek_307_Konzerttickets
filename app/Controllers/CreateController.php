@@ -41,7 +41,7 @@
                 if (count($errors) < 1) {
                     $ticket = new Ticket ( 0 ,$lastname, $firstname, $email, $phone, $concert, $discount, false);
                     $ticket->createTicket();
-                    header('Location: /create');
+                    header('Location: create');
                 } else {
                     $pbo = db();
                     $statement = $pbo->prepare('SELECT * FROM concerts');
@@ -59,7 +59,7 @@
                     require './app/Views/create.view.php';
                 }
             }else {
-                header('Location: /');
+                header('Location: ');
             }
 
 

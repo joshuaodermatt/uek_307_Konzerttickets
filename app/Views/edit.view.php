@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="form-container">
-        <form id="form" action="/update" method="post">
+        <form id="form" action="update" method="post">
 
             <input  type="hidden" name="id" value="<?=$id?>">
 
@@ -57,7 +57,7 @@
 
             <div id="buttons">
                 <button class="button" >
-                    <a href="/pending" style="color: #363636">Abbrechen</a>
+                    <a href="pending" style="color: #363636">Abbrechen</a>
                 </button>
                 <input class="button" type="submit" value="Speichern">
             </div>

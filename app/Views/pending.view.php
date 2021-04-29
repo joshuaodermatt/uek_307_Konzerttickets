@@ -25,10 +25,10 @@
             <?php $dateTimeStamp = strtotime($ticket['due']); ?>
             <div class="static-content">
                 <p class="entry-content text"><?='Abgelaufen am ' . str_replace('-', '.' , date('d-m-Y', $dateTimeStamp)) ?></p>
-                <a href="/detail?id=<?=$ticket['id']?>">
+                <a href="detail?id=<?=$ticket['id']?>">
                     <img class="icons" src="public/assets/search-outline.svg" alt="details" width="20px" height="20px">
                 </a>
-                <a href="/edit?id=<?=$ticket['id']?>">
+                <a href="edit?id=<?=$ticket['id']?>">
                     <img class="icons" src="public/assets/create-outline.svg" alt="bearbeiten" width="20px" height="20px">
                 </a>
                 <p class="entry-content">⌛️</p>
@@ -48,10 +48,10 @@
             <?php $dateTimeStamp = strtotime($ticket['due']); ?>
             <div class="static-content">
                 <p class="entry-content text"><?='hat Zeit bis ' . str_replace('-', '.' , date('d-m-Y', $dateTimeStamp)) ?></p>
-                <a href="/detail?id=<?=$ticket['id']?>">
+                <a href="detail?id=<?=$ticket['id']?>">
                     <img class="icons" src="public/assets/search-outline.svg" alt="details" width="20px" height="20px">
                 </a>
-                <a href="/edit?id=<?=$ticket['id']?>">
+                <a href="edit?id=<?=$ticket['id']?>">
                     <img class="icons" src="public/assets/create-outline.svg" alt="bearbeiten" width="20px" height="20px">
                 </a>
                 <p class="entry-content">⏳️</p>

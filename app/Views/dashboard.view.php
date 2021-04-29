@@ -15,7 +15,7 @@
 <?php require 'app/Views/nav.view.php'?>
 <div id="content-wrapper">
 
-    <h1>Dashboard   <img id="tacho" src="/public/assets/speedometer-outline.svg" width="27" height="27" alt="Tacho"></h1>
+    <h1>Dashboard   <img id="tacho" src="./public/assets/speedometer-outline.svg" width="27" height="27" alt="Tacho"></h1>
     <div>
         <div id="card-wrapper">
             <div class="box">

@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="form-container">
-    <form id="form" action="/add" method="POST">
+    <form id="form" action="add" method="POST">
         <fieldset>
             <label for="lastname">Nachname*</label> <br>
             <input class="input is-normal" type="text" id="lastname" name="lastname" value="<?= $lastname ?? '' ?>"><br><br>
@@ -74,7 +74,7 @@
 
         <div id="buttons">
             <button class="button" >
-                <a href="/dashboard" style="color: #363636">Abbrechen</a>
+                <a href="dashboard" style="color: #363636">Abbrechen</a>
             </button>
             <input class="button" type="submit" value="Erstellen">
         </div>

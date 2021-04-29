@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <button id="button"><a id="link" href="/pending">Zurück</a></button>
+        <button id="button"><a id="link" href="pending">Zurück</a></button>
     </div>
 
 
