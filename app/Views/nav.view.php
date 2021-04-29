@@ -5,9 +5,9 @@
     </div>
     <div id="nav-right-content">
         <ul id="nav-links">
-            <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
-            <li><a href="/create" class="nav-link">Eintragen</a></li>
-            <li><a href="/pending" class="nav-link">Ausstehend</a></li>
+            <li><a href="dashboard" class="nav-link">Dashboard</a></li>
+            <li><a href="create" class="nav-link">Eintragen</a></li>
+            <li><a href="pending" class="nav-link">Ausstehend</a></li>
         </ul>
     </div>
 </div>

@@ -38,7 +38,7 @@ class Ticket {
         $response = $statement->fetchAll();
 
         if(count($response) < 1) {
-            header('Location: /pending');
+            header('Location: pending');
         }
 
         $ticket = new Ticket(
