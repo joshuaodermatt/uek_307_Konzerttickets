@@ -64,6 +64,9 @@
                 <input type="radio" id="fifteenPercentDiscount" value="15" name="discount">
             <?php endif; ?>
             <label for="fifteenPercentDiscount">15% Rabatt</label><br><br>
+
+            <label for="phone">Auslaufdatum</label><br><br>
+            <input class="input is-normal" type="text" id="expiration-calc" value=""><br><br>
         </fieldset>
 
 
@@ -89,6 +92,7 @@
 </div>
 
 <script src="public/js/validation.js"></script>
+<script src="public/js/auto-calc-expiration.js"></script>
 
 </body>
 </html>

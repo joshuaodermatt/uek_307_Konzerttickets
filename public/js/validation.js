@@ -2,7 +2,6 @@ const form = document.getElementById('form');
 
 form.addEventListener('submit', function(event) {
 
-    console.log('js is here')
 
     const lastnameElement = document.getElementById('lastname');
     const firstnameElement = document.getElementById('firstname');
