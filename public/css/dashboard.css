@@ -11,10 +11,53 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+#tacho {
+
+}
+
+#card-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.box {
+    padding: 10px;
+    border: transparent 1px solid;
+    border-radius: 5px;
+    width: 45%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-bottom: 2vh;
+}
+
+#entered-today {
+    padding: 10px;
+    border: transparent 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-bottom: 2vh;
+    margin-top: 3vh;
+}
+
+#content-wrapper {
+    padding:20px;
+    width: 50%;
+    border: transparent 1px solid;
+    border-radius: 10px;
+    margin-left: 25%;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 #content {
     width: 60%;
     margin-left: 20%;
     margin-top: 5vh;
+}
+
+#expired {
+    border: 3px solid #ff7d7d;
 }
 
 .entry-content {

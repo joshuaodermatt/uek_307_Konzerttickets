@@ -12,40 +12,43 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <?php require 'app/Views/nav.view.php'?>
-    <h1>Dashboard</h1>
-    <div>
-        <div>
-            <h2>Ausstehend</h2>
-            <p>Es <?= ($pendingCount > 1) ? "sind" : "ist"?> <?= $pendingCount ?> noch nicht <?= ($pendingCount > 1) ? "bezahlte Tickets" : "bezahltes Ticket" ?> vorhanden</p>
-        </div>
-        <div>
-            <h2>Abgelaufen</h2>
+<?php require 'app/Views/nav.view.php'?>
+<div id="content-wrapper">
 
-            <p>Es <?= ($expiredTickets > 1) ? "sind" : "ist"?> <?= $expiredTickets ?> <?= ($expiredTickets > 1) ? "abgelaufene Tickets" : "abgelaufenes Ticket" ?> vorhanden</p>
+    <h1>Dashboard   <img id="tacho" src="/public/assets/speedometer-outline.svg" width="27" height="27" alt="Tacho"></h1>
+    <div>
+        <div id="card-wrapper">
+            <div class="box">
+                <h2>Ausstehend</h2>
+                <p>Es <?= ($pendingCount > 1) ? "sind" : "ist"?> <?= $pendingCount ?> noch nicht <?= ($pendingCount > 1) ? "bezahlte Tickets" : "bezahltes Ticket" ?> vorhanden</p>
+            </div>
+            <div class="box" id="expired">
+                <h2>Abgelaufen</h2>
+
+                <p>Es <?= ($expiredTickets > 1) ? "sind" : "ist"?> <?= $expiredTickets ?> <?= ($expiredTickets > 1) ? "abgelaufene Tickets" : "abgelaufenes Ticket" ?> vorhanden</p>
+            </div>
         </div>
-        <div>
+
+        <div id="entered-today">
             <h2>Heute eingetragen</h2>
-                <?php foreach ($ticketsOfToday as $ticket) : ?>
-                    <div id="entry-container">
-                        <p class="entry-content text"><?= $ticket['lastname'] . ' ' . $ticket['firstname'] ?></p>
-                        <p><?= $ticket['email']?></p>
-                        <?php if (!$ticket['phone'] == '') : ?>
-                        <p><?= $ticket['phone']?></p>
-                        <?php else: ?>
-                        <p>Keine Telefonnummer eingetragen</p>
+            <?php foreach ($ticketsOfToday as $ticket) : ?>
+                <div id="entry-container">
+                    <p class="entry-content text"><?= $ticket['lastname'] . ' ' . $ticket['firstname'] ?></p>
+                    <?php $dateTimeStamp = strtotime($ticket['due']); ?>
+                    <p class="entry-content text"><?= 'Um: ' . str_replace('-', ':' , date('H-i', $dateTimeStamp) . ' Uhr')?></p>
+                    <?php foreach ($concerts as $concert) : ?>
+                        <?php if ($concert['id'] == $ticket['concert']) : ?>
+                            <p class="entry-content text"><?= 'Konzert: ' .  $concert['artist']?></p>
                         <?php endif; ?>
-                        <?php foreach ($concerts as $concert) : ?>
-                            <?php if ($concert['id'] == $ticket['concert']) : ?>
-                                <p><?= $concert['artist']?></p>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
         </div>
 
 
     </div>
+</div>
+
 
 
 </body>
