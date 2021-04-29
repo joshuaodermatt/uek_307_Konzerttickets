@@ -2,6 +2,8 @@
 require 'core/bootstrap.php';
 
 $routes = [
+    '/' => 'DashboardController@show',
+    '/dashboard' => 'DashboardController@show',
 	'/edit' => 'EditController@edit',
     '/update' => 'Editcontroller@update',
 	'/create' => 'CreateController@create',
