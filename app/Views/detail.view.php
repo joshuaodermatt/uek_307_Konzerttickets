@@ -16,19 +16,19 @@
         <h2><?= $ticket->lastname . ' ' . $ticket->firstname ?></h2>
         <p>Email: <?= $ticket->email ?></p>
         <?php if (!$ticket->phone == '') : ?>
-        <p>Telefon: <?= $ticket->phone ?></p>
+            <p>Telefon: <?= $ticket->phone ?></p>
         <?php endif; ?>
-        <p>Konzert: <?= $concert ?></p>
-        <p>Rabatt: <?= $ticket->discount ?>%</p>
+            <p>Konzert: <?= $concert ?></p>
+            <p>Rabatt: <?= $ticket->discount ?>%</p>
         <?php if ($ticket->status === false) : ?>
-        <p>Status: Nicht bezahlt</p>
+            <p>Status: Nicht bezahlt</p>
         <?php else: ?>
-        <p>Status: bezahlt</p>
+            <p>Status: bezahlt</p>
         <?php endif; ?>
         <?php $dateTimeStamp = strtotime($ticket->created); ?>
-        <p>Erstellt am: <?= str_replace('-', '.' , date('d-m-Y', $dateTimeStamp)) ?></p>
+            <p>Erstellt am: <?= str_replace('-', '.' , date('d-m-Y', $dateTimeStamp)) ?></p>
         <?php $dateTimeStamp = strtotime($ticket->due); ?>
-        <p>Zahlungsfrist: <?= str_replace('-', '.' , date('d-m-Y', $dateTimeStamp)) ?></p>
+            <p>Zahlungsfrist: <?= str_replace('-', '.' , date('d-m-Y', $dateTimeStamp)) ?></p>
     </div>
 
 
