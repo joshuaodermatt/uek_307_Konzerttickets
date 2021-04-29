@@ -41,12 +41,12 @@ form.addEventListener('submit', function(event) {
     if (email=== '') {
         errors.push('Bitte geben Sie eine E-mail an');
         emailElement.style.borderColor = red;
-    }else if (!email.match('/(.+)@(.+){2,}\\.(.+){2,}')) {
+    }else if (!email.match(/(.+)@(.+){2,}\.(.+){2,}/)) {
         errors.push('Bitte geben Sie eine Valide Email ein.');
         emailElement.style.borderColor = red;
     }
 
-    if(!phone.match('/^(?:(?:|0{1,2}|\\+{0,2})41(?:|\\(0\\))|0)([1-9]\\d)(\\d{3})(\\d{2})(\\d{2})$/')) {
+    if(!phone.match(/^[0-9 ()+-]+$/)) {
         errors.push('Bitte geben Sie eine Valide Telefonnummer ein.');
         phoneElement.style.borderColor = red;
     }
