@@ -11,6 +11,17 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+#content-wrapper {
+    padding:20px;
+    width: 50%;
+    border: transparent 1px solid;
+    border-radius: 10px;
+    margin-left: 25%;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 #content {
     width: 60%;
     margin-left: 20%;

@@ -12,7 +12,9 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <?php require 'app/Views/nav.view.php'?>
+<?php require 'app/Views/nav.view.php'?>
+<div id="content-wrapper">
+
     <h1>Dashboard</h1>
     <div>
         <div>
@@ -26,26 +28,28 @@
         </div>
         <div>
             <h2>Heute eingetragen</h2>
-                <?php foreach ($ticketsOfToday as $ticket) : ?>
-                    <div id="entry-container">
-                        <p class="entry-content text"><?= $ticket['lastname'] . ' ' . $ticket['firstname'] ?></p>
-                        <p><?= $ticket['email']?></p>
-                        <?php if (!$ticket['phone'] == '') : ?>
+            <?php foreach ($ticketsOfToday as $ticket) : ?>
+                <div id="entry-container">
+                    <p class="entry-content text"><?= $ticket['lastname'] . ' ' . $ticket['firstname'] ?></p>
+                    <p><?= $ticket['email']?></p>
+                    <?php if (!$ticket['phone'] == '') : ?>
                         <p><?= $ticket['phone']?></p>
-                        <?php else: ?>
+                    <?php else: ?>
                         <p>Keine Telefonnummer eingetragen</p>
+                    <?php endif; ?>
+                    <?php foreach ($concerts as $concert) : ?>
+                        <?php if ($concert['id'] == $ticket['concert']) : ?>
+                            <p><?= $concert['artist']?></p>
                         <?php endif; ?>
-                        <?php foreach ($concerts as $concert) : ?>
-                            <?php if ($concert['id'] == $ticket['concert']) : ?>
-                                <p><?= $concert['artist']?></p>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
         </div>
 
 
     </div>
+</div>
+
 
 
 </body>
