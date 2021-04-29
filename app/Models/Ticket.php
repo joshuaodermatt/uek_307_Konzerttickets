@@ -8,8 +8,10 @@ class Ticket {
     public int $concert;
     public int $discount;
     public bool $status;
+    public string $created;
+    public string $due;
 
-    public function __construct($id = 0, $lastname = '', $firstname = '', $email = '', $phone = '', $concert = 0, $discount = 0, $status = 0) {
+    public function __construct($id = 0, $lastname = '', $firstname = '', $email = '', $phone = '', $concert = 0, $discount = 0, $status = false, $created = '', $due = '') {
         $this->id = $id;
         $this->lastname = $lastname;
         $this->firstname = $firstname;
@@ -18,6 +20,8 @@ class Ticket {
         $this->concert = $concert;
         $this->discount = $discount;
         $this->status = $status;
+        $this->created = $created;
+        $this->due = $due;
     }
 
 
@@ -45,7 +49,9 @@ class Ticket {
             $response[0]['phone'],
             $response[0]['concert'],
             $response[0]['discount'],
-            $response[0]['status']
+            $response[0]['status'],
+            $response[0]['created'],
+            $response[0]['due']
         );
 
         return $ticket;

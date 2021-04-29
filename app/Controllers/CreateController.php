@@ -39,7 +39,7 @@
                     array_push($errors, 'Bitte geben Sie einen Treuebonus an');
                 }
                 if (count($errors) < 1) {
-                    $ticket = new Ticket ( 0 ,$lastname, $firstname, $email, $phone, $concert, $discount, 0);
+                    $ticket = new Ticket ( 0 ,$lastname, $firstname, $email, $phone, $concert, $discount, false);
                     $ticket->createTicket();
                     header('Location: /create');
                 } else {

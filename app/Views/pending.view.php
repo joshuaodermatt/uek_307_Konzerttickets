@@ -22,11 +22,9 @@
     <?php foreach ($ticketsExpired as $ticket) : ?>
         <div id="entry-container">
             <p class="entry-content text"><?= $ticket['lastname'] . ' ' . $ticket['firstname'] ?></p>
-            <?php
-            $dateTimeStamp = strtotime($ticket['due']);
-            ?>
+            <?php $dateTimeStamp = strtotime($ticket['due']); ?>
             <div class="static-content">
-                <p class="entry-content text"><?='Abgelaufen am ' . str_replace('-', ' ' , date('d-m-Y', $dateTimeStamp)) ?></p>
+                <p class="entry-content text"><?='Abgelaufen am ' . str_replace('-', '.' , date('d-m-Y', $dateTimeStamp)) ?></p>
                 <a href="/detail?id=<?=$ticket['id']?>">
                     <img class="icons" src="public/assets/search-outline.svg" alt="details" width="20px" height="20px">
                 </a>
@@ -47,11 +45,9 @@
     <?php foreach ($ticketsNotExpired as $ticket) : ?>
         <div id="entry-container">
             <p class="entry-content text"><?= $ticket['lastname'] . ' ' . $ticket['firstname'] ?></p>
-            <?php
-            $dateTimeStamp = strtotime($ticket['due']);
-            ?>
+            <?php $dateTimeStamp = strtotime($ticket['due']); ?>
             <div class="static-content">
-                <p class="entry-content text"><?='hat Zeit bis ' . str_replace('-', ' ' , date('d-m-Y', $dateTimeStamp)) ?></p>
+                <p class="entry-content text"><?='hat Zeit bis ' . str_replace('-', '.' , date('d-m-Y', $dateTimeStamp)) ?></p>
                 <a href="/detail?id=<?=$ticket['id']?>">
                     <img class="icons" src="public/assets/search-outline.svg" alt="details" width="20px" height="20px">
                 </a>
