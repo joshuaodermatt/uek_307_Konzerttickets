@@ -17,11 +17,12 @@
     <div>
         <div>
             <h2>Ausstehend</h2>
-            <p>Es sind <?= $pendingCount ?> noch nicht gezahlte Tickets vorhanden</p>
+            <p>Es <?= ($pendingCount > 1) ? "sind" : "ist"?> <?= $pendingCount ?> noch nicht <?= ($pendingCount > 1) ? "bezahlte Tickets" : "bezahltes Ticket" ?> vorhanden</p>
         </div>
         <div>
             <h2>Abgelaufen</h2>
-            <p>Es sind/ist <?= $expiredTickets ?> Abgelaufene Tickets vorhanden</p>
+
+            <p>Es <?= ($expiredTickets > 1) ? "sind" : "ist"?> <?= $expiredTickets ?> <?= ($expiredTickets > 1) ? "abgelaufene Tickets" : "abgelaufenes Ticket" ?> vorhanden</p>
         </div>
         <div>
             <h2>Heute eingetragen</h2>
