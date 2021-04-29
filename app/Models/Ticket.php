@@ -33,6 +33,10 @@ class Ticket {
 
         $response = $statement->fetchAll();
 
+        if(count($response) < 1) {
+            header('Location: /pending');
+        }
+
         $ticket = new Ticket(
             $response[0]['id'],
             $response[0]['lastname'],
@@ -52,8 +56,6 @@ class Ticket {
     public function update(){
         $pdo = db();
 
-
-
         $statement = $pdo->prepare('UPDATE `tickets` SET lastname = :lastname, firstname = :firstname, email = :email, phone = :phone, concert = :concert, status = :status WHERE id = :id');
 
         $status = $this->mapBoolToInt($this->status);
@@ -66,16 +68,8 @@ class Ticket {
         $statement->bindParam(':status', $status);
         $statement->bindParam(':id', $this->id);
 
-    protected function fetchConcert($id) {
-        $pdo = db();
-
-        $statement = $pdo->prepare('SELECT * FROM tickets WHERE id = :id');
-
-        $statement->bindParam(':id', $id);
-
         $statement->execute();
 
-        $response = $statement->fetchAll();
     }
 
     public function createTicket() {
@@ -89,7 +83,7 @@ class Ticket {
         $pdo = db();
         $due = $this->getDue();
         $created = date("Y-m-d H:i:s");
-        $status = $this->getStatus();
+        $status = $this->mapBoolToInt($this->status);
         $statement = $pdo->prepare('INSERT INTO `tickets`(lastname,firstname,email,phone,concert,discount,status,created,due) VALUES(:lastname,:firstname, :email, :phone, :concert, :discount, :status, :created, :due)');
         $statement->bindParam(':lastname', $this->lastname);
         $statement->bindParam(':firstname', $this->firstname);
@@ -111,7 +105,7 @@ class Ticket {
         }
         return 0;
     }
-}
+
 
     public function getDue() {
         if ($this->discount === 5) {
@@ -125,13 +119,6 @@ class Ticket {
         }
     }
 
-    private function getStatus() {
-        if ($this->status === false) {
-            return 0;
-        } else {
-            return 1;
-        }
-    }
 
 
 }

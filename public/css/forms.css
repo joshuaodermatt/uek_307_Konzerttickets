@@ -1,0 +1,39 @@
+@import
+"https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
+
+
+#form-container {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10vh;
+    border: transparent solid 1px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+html {
+    background: #F5F5F5;
+}
+
+
+#form {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+
+#error-container {
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
