@@ -65,8 +65,8 @@
             <?php endif; ?>
             <label for="fifteenPercentDiscount">15% Rabatt</label><br><br>
 
-            <label for="phone">Auslaufdatum</label><br><br>
-            <input class="input is-normal" type="text" id="expiration-calc" value=""><br><br>
+            <label>Auslaufdatum</label><br><br>
+            <h2  id="expiration-calc"></h2><br><br>
         </fieldset>
 
 

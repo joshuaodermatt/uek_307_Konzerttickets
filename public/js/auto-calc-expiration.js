@@ -1,7 +1,7 @@
 let textBox = document.getElementById('expiration-calc');
 let allInputs = document.getElementsByTagName('input')
 
-textBox.setAttribute('value', (new Date().toLocaleDateString()))
+textBox.innerText = (new Date().toLocaleDateString());
 
 let discount = 0;
 
@@ -24,7 +24,7 @@ for(let child of allInputs) {
             let date = new Date();
 
             date.setDate(date.getDate() + daysToAdd);
-            textBox.setAttribute('value', date.toLocaleDateString())
+            textBox.textContent = date.toLocaleDateString();
         })
     }
 }
