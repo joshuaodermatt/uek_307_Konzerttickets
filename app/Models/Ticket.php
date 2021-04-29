@@ -65,6 +65,12 @@ class Ticket {
         $statement = $pdo->prepare('UPDATE `tickets` SET lastname = :lastname, firstname = :firstname, email = :email, phone = :phone, concert = :concert, status = :status WHERE id = :id');
 
         $status = $this->mapBoolToInt($this->status);
+        $this->lastname = htmlspecialchars($this->lastname);
+        $this->firstname = htmlspecialchars($this->firstname);
+        $this->email = htmlspecialchars($this->email);
+        $this->phone = htmlspecialchars($this->phone);
+        $this->concert = htmlspecialchars($this->concert);
+        $this->discount = htmlspecialchars($this->discount);
 
         $statement->bindParam(':firstname', $this->firstname);
         $statement->bindParam(':lastname', $this->lastname);
