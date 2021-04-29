@@ -3,7 +3,6 @@ const form = document.getElementById('form');
 form.addEventListener('submit', function(event) {
 
 
-
     const lastnameElement = document.getElementById('lastname');
     const firstnameElement = document.getElementById('firstname');
     const emailElement = document.getElementById('email');
@@ -12,12 +11,17 @@ form.addEventListener('submit', function(event) {
 
     const lastname = lastnameElement.value;
     const firstname = firstnameElement.value;
-    let email = emailElement.value;
-    let phone = phoneElement.value;
+    const email = emailElement.value;
+    const phone = phoneElement.value;
     const concert = concertElement.value;
 
-    email = email.trim();
-    phone = phone.trim();
+    lastnameElement.style.borderColor = '#dbdbdb';
+    firstnameElement.style.borderColor = '#dbdbdb';
+    emailElement.style.borderColor = '#dbdbdb';
+    phoneElement.style.borderColor = '#dbdbdb';
+
+    email.trim();
+    phone.trim()
 
     let errors = [];
 
@@ -33,19 +37,16 @@ form.addEventListener('submit', function(event) {
         firstnameElement.style.borderColor = red;
     }
 
-    console.log(email);
-
-    console.log(email.match('/\\S+@\\S+\\.\\S+/'));
 
     if (email=== '') {
         errors.push('Bitte geben Sie eine E-mail an');
         emailElement.style.borderColor = red;
-    }else if (!email.match('/\\S+@\\S+\\.\\S+/')) {
+    }else if (!email.match(/(.+)@(.+){2,}\.(.+){2,}/)) {
         errors.push('Bitte geben Sie eine Valide Email ein.');
         emailElement.style.borderColor = red;
     }
 
-    if(!phone.match('/^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$/im')) {
+    if(!phone.match(/^[0-9 ()+-]+$/)) {
         errors.push('Bitte geben Sie eine Valide Telefonnummer ein.');
         phoneElement.style.borderColor = red;
     }
@@ -56,11 +57,10 @@ form.addEventListener('submit', function(event) {
     }
 
     if (errors.length > 0) {
-        const errorList = document.getElementById('error-list');
 
         event.preventDefault();
 
-        console.log('prevented default')
+        const errorList = document.getElementById('error-list');
 
         errorList.innerHTML = "";
 
