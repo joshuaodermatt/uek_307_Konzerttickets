@@ -6,18 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="public/css/forms.css">
-    <link rel="stylesheet" href="public/css/public.css">
     <title>Ticketverkauf erstellen</title>
 </head>
 <body>
 <div id="form-container">
     <form id="form" action="/add" method="POST">
         <fieldset>
-            <label for="lastName">Nachname*</label> <br>
-            <input class="input is-normal" type="text" id="lastName" name="lastName" value="<?= $lastname ?? '' ?>"><br><br>
+            <label for="lastname">Nachname*</label> <br>
+            <input class="input is-normal" type="text" id="lastname" name="lastname" value="<?= $lastname ?? '' ?>"><br><br>
 
-            <label for="firstName">Vorname*</label><br>
-            <input class="input is-normal" type="text" id="firstName" name="firstName" value="<?= $firstname ?? '' ?>"><br><br>
+            <label for="firstname">Vorname*</label><br>
+            <input class="input is-normal" type="text" id="firstname" name="firstname" value="<?= $firstname ?? '' ?>"><br><br>
 
             <label for="email">Email*</label><br>
             <input class="input is-normal" type="email" id="email" name="email" value="<?= $email ?? '' ?>"><br><br>
@@ -80,7 +79,7 @@
 </div>
 
 <div id="error-container">
-    <ul>
+    <ul id="error-list">
         <?php if (isset($errors)) :?>
             <?php foreach ($errors as $error) : ?>
                 <li><?= $error ?></li>
@@ -89,6 +88,7 @@
     </ul>
 </div>
 
+<script src="public/js/validation.js"></script>
 
 </body>
 </html>

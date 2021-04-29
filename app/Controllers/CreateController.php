@@ -12,8 +12,8 @@
 
         public function add() {
             if($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-                $lastname = trim($_POST['lastName']);
-                $firstname = trim($_POST['firstName']);
+                $lastname = trim($_POST['lastname']);
+                $firstname = trim($_POST['firstname']);
                 $email = trim($_POST['email']);
                 $phone = trim($_POST['phone']);
                 $concert = trim($_POST['concert']);
